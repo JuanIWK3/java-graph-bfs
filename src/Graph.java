@@ -2,15 +2,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Graph {
-  public final int v;
+  public final int size;
 
-  public Graph(int v) {
-    this.v = v;
+  public Graph(int size) {
+    this.size = size;
   }
 
   public void breadthFirstSearch(int[][] matrix, int src) {
     Queue<Integer> naoVisitados = new LinkedList<>();
-    boolean[] visitados = new boolean[v];
+    boolean[] visitados = new boolean[size];
 
     // Primeiro nó
     naoVisitados.add(src);
@@ -28,7 +28,7 @@ public class Graph {
       // Pega o primeiro da fila
       int atual = naoVisitados.remove();
       // Itera pelos nós
-      for (int i = 0; i < v; i++) {
+      for (int i = 0; i < size; i++) {
         // Se for vizinho e não tiver sido visitado
         if (matrix[atual][i] == 1 && !visitados[i]) {
           // Adiciona na fila
@@ -43,9 +43,9 @@ public class Graph {
   }
 
   public int[][] initMatrix() {
-    int[][] matrix = new int[this.v][this.v];
-    for (int i = 0; i < this.v; i++) {
-      for (int j = 0; j < this.v; j++) {
+    int[][] matrix = new int[this.size][this.size];
+    for (int i = 0; i < this.size; i++) {
+      for (int j = 0; j < this.size; j++) {
         matrix[i][j] = 0;
       }
     }
@@ -53,8 +53,8 @@ public class Graph {
   }
 
   public void printMatrix(int[][] matrix) {
-    for (int i = 0; i < this.v; i++) {
-      for (int j = 0; j < this.v; j++) {
+    for (int i = 0; i < this.size; i++) {
+      for (int j = 0; j < this.size; j++) {
         System.out.print(matrix[i][j] + " ");
       }
       System.out.println();

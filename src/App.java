@@ -1,8 +1,10 @@
 public class App {
     public static void main(String[] args) throws Exception {
         Graph graph = new Graph(6);
+        // Matrix com valores 0
         int[][] matrix = graph.initMatrix();
 
+        // Criando conexões entre os nós
         matrix[0][1] = 1;
         matrix[0][2] = 1;
         matrix[0][3] = 1;
